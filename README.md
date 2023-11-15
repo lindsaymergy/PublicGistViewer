@@ -1,25 +1,47 @@
-# Getting Started with Create React App
+**description of the work completed:**
+- Public gist viewer, where a user can type in a github username into the search box and view the public gists for that user. After finding a specific user's gists, you can click to view the files for each respective gist, and then return to search for another user.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**technical detail:**
+- user types a word into the input
+- as the user types, I build a url request with their input to an API endpoint that searches github accounts, and display the results for the user
+- once an account is found, the user can select a specific gist to view details for
+- I use the gist id from the gist the user selects to request the details from a separate API endpoint that searches gists by gist id, and display the results for the user
+- once the user is viewing a specific gist, they can press a button to view each file in the gist
+- I pull the contents of that file, to be rendered on the page without linking externally to github
 
-## Features
+**libraries used:**
+- [create-react-app](https://create-react-app.dev/), as the foundational boilerplate
+- [axios](https://axios-http.com/), for accessing API endpoints
+- [react-router-dom](https://www.npmjs.com/package/react-router-dom), for creating routes to each page
 
-- user can search for a user on github, by username
-- user can view that user's public gists
-- user can view the files in each gist
+**trade-offs made:**
+- in the interest of time, I displayed the gist files inline instead of creating a separate Detail page
 
-## Project Setup
+**assumptions made:**
+- user will understand the placeholder text and know that results appear as they type, instead of looking for a submit button
 
-In the project directory, you can run:
+**changes i would've made with more time:**
+- completed the optional Favorites feature
+- refactor the gist call to reference the abstracted usefetch hook that the gists call uses
+- add a loading component that displays before data has returned
+- style the file rendering responsively (currently overflows visible page )
+- format the created_at date of a gist to MM/DD/YYYY
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**what i would change, if building for production:**
+- limit input to text only to avoid script injection
+- add pagination for profiles with many many gists, to improve performance
+- responsive styling
+- ada compliance for screenreaders
+- SEO tags for searchability
+- displayed more details for each gist
 
-The page will reload when you make changes.
+**completed spec:**
+- user can enter text into an input
+- user can view gists for provided username
+- user can view specific gist's details
+- user can view files for a specific gist
+- user can render files for a specific gist
+- user can return to the search and search for a new user
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**time spent in code:** 2.5 hours
